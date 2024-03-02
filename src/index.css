@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* +++++++++++++++++++++ start  all foods component page :reactPginate+++++++ */
+.paginatinBttns a {
+  padding: 13px;
+  background: #232527;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.paginatinBttns a:hover {
+  background: #df2020;
+}
+/* ++++++++++++++++finish  all foods component page :reactPginate++++++ */

@@ -8,8 +8,6 @@ import "swiper/css/effect-flip";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "../SwiperSlider/SwiperSlider.css";
-
 // import required modules
 import { EffectFlip, Pagination, Navigation } from "swiper/modules";
 

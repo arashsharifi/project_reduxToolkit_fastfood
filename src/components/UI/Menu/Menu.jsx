@@ -7,7 +7,7 @@ export default function Menu({ categories, filterMenusHandler }) {
   const uniqueCategories = [...new Set(categories.map((cat) => cat[0]))];
 
   return (
-    <div className="flex  items-center justify-center gap-2 bg-red-600 my-3 h-[300px] md:h-[100px] w-[95%] mx-auto rounded-md shadow-lg ">
+    <div className="flex  items-center justify-center gap-2 bg-red-600 my-3 h-[350px] md:h-[100px] w-[95%] mx-auto rounded-md shadow-lg ">
       <div className="flex flex-col  md:flex-row items-center justify-between w-[85%]  gap-2 font-mono   mx-auto  ">
         {uniqueCategories.map((catName, index) => {
           // Find the first image for the category

@@ -53,11 +53,11 @@ export default function Checkout() {
   }
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full ">
       <div className="flex flex-col mt-28">
         <CommonSection title="checkout" />
-        <div className="flex gap-3 w-[80%] mx-auto">
-          <div className="w-[70%]  ">
+        <div className="flex flex-col md:flex-row gap-3 w-[80%] mx-auto">
+          <div className="w-[90%] md:w-[70%]   ">
             <div className="w-full text-lg flex flex-col gap-2">
               <h1 className="self-start text-2xl font-bold m-2 italic">
                 Shipping Cart
@@ -138,7 +138,7 @@ export default function Checkout() {
               </div>
             </div>
           </div>
-          <div className="w-[30%] ">
+          <div className="w-[90%] mx-auto md:w-[30%] m-8 md:m-0 shadow-xl md:shadow-none  ">
             <div className="w-full bg-red-200 rounded-lg  flex flex-col gap-7 p-2 mt-12">
               <div className="flex flex-col">
                 <div className="flex flex-col gap-1">

@@ -13,7 +13,7 @@ export default function Login() {
     <div className="flex flex-col w-full">
       <div className="flex flex-col gap-10 mt-28 w-full">
         <CommonSection title="login" />
-        <div className="flex  w-[40%] mx-auto bg-red-200 rounded-lg shadow-lg m-5">
+        <div className="flex  w-[80%] md:w-[40%]  mx-auto bg-red-200 rounded-lg shadow-lg m-5">
           <div className="flex w-full">
             <form
               className="w-full flex flex-col gap-2 p-3"

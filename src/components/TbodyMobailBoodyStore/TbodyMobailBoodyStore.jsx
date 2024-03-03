@@ -101,7 +101,7 @@ const Tr = ({ data, deleteHandler }) => {
 const MoBaileTr = ({ data, deleteHandler }) => {
   const { id, image01, price, title, quantity, totalPrice, desc } = data;
   return (
-    <div className="bg-gray-100 space-y-3 p-4 rounded-lg shadow-lg block md:hidden">
+    <div className="bg-white border-red-600 border-2  space-y-3 p-4 rounded-lg shadow-lg shadow-red-300 block md:hidden">
       <div className="flex flex-col p-2 gap-3 space-x-2 text-sm ">
         <div className="w-20">
           <img

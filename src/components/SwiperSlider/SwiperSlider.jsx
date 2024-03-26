@@ -16,11 +16,9 @@ export default function SwiperSlider({ dataSwiper }) {
   return (
     <>
       <Swiper
-        loop={true}
         effect={"flip"}
         grabCursor={true}
         pagination={true}
-        navigation={true}
         modules={[EffectFlip, Pagination, Navigation]}
         className="mySwiper"
       >

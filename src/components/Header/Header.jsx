@@ -29,7 +29,7 @@ export default function Header() {
     dispatch(cartUiDashbordActions.toggle());
   }
   return (
-    <nav className="bg-white z-50 shadow-xl fixed left-0 right-0">
+    <nav className="bg-white z-50 shadow-xl fixed left-0 right-0 opacity-90">
       <div className="flex  gap-1 w-[100%] md:w-[80%] mx-auto justify-between  md:p-0 p-3">
         <div className="flex flex-col gap-1 items-center p-3">
           <div className="w-16">

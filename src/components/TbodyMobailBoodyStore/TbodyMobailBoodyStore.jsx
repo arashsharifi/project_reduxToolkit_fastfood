@@ -4,7 +4,6 @@ import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/shopping-cart/cartSlice";
-import pic from "../../../src/assets/images/bread1.png";
 
 export default function TbodyMobailBoodyStore() {
   const storeDatas = useSelector((state) => state.cart.cartItems);

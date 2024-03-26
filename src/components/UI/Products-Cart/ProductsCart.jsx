@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function ProductsCart({ data }) {
   const dispatch = useDispatch();
   function addToCartHandler(data) {
+    console.log(data);
     dispatch(
       cartActions.addItem({
         id: data.id,

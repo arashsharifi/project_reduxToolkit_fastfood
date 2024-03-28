@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { FiDollarSign } from "react-icons/fi";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { cartUiDashbordActions } from "../../../store/shopping-cart/cartUiSliceDashbord";
 
 export default function Carts() {
+  const [singnal, setSignal] = useState(false);
+  const [nameProduct, setNameProduct] = useState("");
   const showVisible = useSelector((state) => state.cartUiDash.cartIsVisiable);
   const cartProducts = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+
+  useEffect(() => {
+    if (singnal) {
+      toast.error(`remove : ${nameProduct} `, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setSignal(false);
+    }
+  }, [singnal]);
 
   const dispatch = useDispatch();
 
@@ -49,7 +70,12 @@ export default function Carts() {
               </h6>
             ) : (
               cartProducts.map((item, index) => (
-                <CartItem key={index} data={item} />
+                <CartItem
+                  key={index}
+                  data={item}
+                  setSignal={setSignal}
+                  setNameProduct={setNameProduct}
+                />
               ))
             )}
           </div>
@@ -69,6 +95,7 @@ export default function Carts() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

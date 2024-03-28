@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CgDollar } from "react-icons/cg";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/shopping-cart/cartSlice";
 
-export default function TbodyMobailBoodyStore() {
+export default function TbodyMobailBoodyStore({ setSignal, setNameProduct }) {
   const storeDatas = useSelector((state) => state.cart.cartItems);
 
   const dispatch = useDispatch();
 
   function deleteHandler(idObj) {
     dispatch(cartActions.deleteItem(idObj));
+    setSignal(true);
   }
+
   return (
     <>
       <div className="w-[90%] mx-auto m-3 overflow-auto rounded-lg shadow-lg hidden md:block">
@@ -38,7 +40,12 @@ export default function TbodyMobailBoodyStore() {
           </thead>
           <tbody className=" divide-gray-100 w-full ">
             {storeDatas.map((store) => (
-              <Tr key={store.id} data={store} deleteHandler={deleteHandler} />
+              <Tr
+                key={store.id}
+                data={store}
+                deleteHandler={deleteHandler}
+                setNameProduct={setNameProduct}
+              />
             ))}
           </tbody>
         </table>
@@ -49,6 +56,7 @@ export default function TbodyMobailBoodyStore() {
             key={store.id}
             data={store}
             deleteHandler={deleteHandler}
+            setNameProduct={setNameProduct}
           />
         ))}
       </div>
@@ -56,7 +64,7 @@ export default function TbodyMobailBoodyStore() {
   );
 }
 
-const Tr = ({ data, deleteHandler }) => {
+const Tr = ({ data, deleteHandler, setNameProduct }) => {
   console.log(data);
   const { id, image01, title, quantity, totalPrice } = data;
   return (
@@ -87,7 +95,10 @@ const Tr = ({ data, deleteHandler }) => {
       </td>
       <td>
         <div
-          onClick={() => deleteHandler(id)}
+          onClick={() => {
+            deleteHandler(id);
+            setNameProduct(title);
+          }}
           className="flex w-20 justify-center p-3 bg-red-600 rounded-lg shadow-lg duration-300 hover:shadow-gray-400 cursor-pointer"
         >
           <MdOutlineDeleteForever className="text-white text-xl" />
@@ -97,7 +108,7 @@ const Tr = ({ data, deleteHandler }) => {
   );
 };
 
-const MoBaileTr = ({ data, deleteHandler }) => {
+const MoBaileTr = ({ data, deleteHandler, setNameProduct }) => {
   const { id, image01, price, title, quantity, totalPrice, desc } = data;
   return (
     <div className="bg-white border-red-600 border-2  space-y-3 p-4 rounded-lg shadow-lg shadow-red-300 block md:hidden">
@@ -134,7 +145,10 @@ const MoBaileTr = ({ data, deleteHandler }) => {
       <div className="max-w-[100%]  p-4 text-sm  italic">{desc}</div>
       <div className="p-3">
         <button
-          onClick={() => deleteHandler(id)}
+          onClick={() => {
+            deleteHandler(id);
+            setNameProduct(title);
+          }}
           className="bg-red-600 flex justify-center text-white px-2 py-1 w-20 rounded-lg shadow-lg duration-300 hover:shadow-gray-600 cursor-pointer"
         >
           <MdOutlineDeleteForever className="text-xl" />

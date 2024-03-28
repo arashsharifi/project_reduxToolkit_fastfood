@@ -5,6 +5,9 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shopping-cart/cartSlice";
 import { Link } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function ProductsCart({ data }) {
   const dispatch = useDispatch();
   function addToCartHandler(data) {
@@ -19,6 +22,16 @@ export default function ProductsCart({ data }) {
         desc: data.desc,
       })
     );
+    toast.success(`${data.title} :add to basket`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   }
   return (
     <div className="relative w-full flex flex-col gap-2 p-3 border border-1 border-black shadow-md rounded-md">
@@ -53,6 +66,7 @@ export default function ProductsCart({ data }) {
           add to basket
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 }

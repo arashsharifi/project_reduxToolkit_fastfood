@@ -4,7 +4,8 @@ import { RiChatDeleteFill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../../store/shopping-cart/cartSlice";
 import { Link } from "react-router-dom";
-export default function CartItem({ data }) {
+
+export default function CartItem({ data, setSignal, setNameProduct }) {
   const dispatch = useDispatch();
 
   function icrementItem() {
@@ -24,6 +25,8 @@ export default function CartItem({ data }) {
 
   function deleteItemHandler() {
     dispatch(cartActions.deleteItem(data.id));
+    setSignal(true);
+    setNameProduct(data.title);
   }
 
   return (

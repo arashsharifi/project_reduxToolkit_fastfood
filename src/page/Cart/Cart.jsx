@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CommonSection from "../../components/UI/CommonSection/CommonSection";
 import TbodyMobailBoodyStore from "../../components/TbodyMobailBoodyStore/TbodyMobailBoodyStore";
 import { CgDollar } from "react-icons/cg";
@@ -8,9 +8,31 @@ import notepic1 from "../../../src/assets/images/note1.jpg";
 import notepic2 from "../../../src/assets/images/note2.png";
 import { Link } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Cart() {
   const store = useSelector((state) => state.cart.cartItems);
   const totalAll = useSelector((state) => state.cart.totalAmount);
+  const [singnal, setSignal] = useState(false);
+  const [nameProduct, setNameProduct] = useState("");
+  useEffect(() => {
+    if (singnal) {
+      toast.error(`remove : ${nameProduct} `, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setSignal(false);
+    }
+  }, [singnal]);
+
+  console.log(singnal);
   return (
     <div className="w-full flex flex-col">
       <div className="w-full mt-28 flex flex-col">
@@ -31,7 +53,10 @@ export default function Cart() {
               </div>
             </div>
           ) : (
-            <TbodyMobailBoodyStore />
+            <TbodyMobailBoodyStore
+              setSignal={setSignal}
+              setNameProduct={setNameProduct}
+            />
           )}
 
           <div className="w-[90%] mx-auto flex my-2 justify-center  md:justify-start   text-black  p-3">
@@ -64,6 +89,7 @@ export default function Cart() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

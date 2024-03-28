@@ -29,7 +29,7 @@ export default function Header() {
     dispatch(cartUiDashbordActions.toggle());
   }
   return (
-    <nav className="bg-white z-50 shadow-xl fixed left-0 right-0 opacity-90">
+    <nav className="bg-white z-50 shadow-xl fixed left-0 right-0 ">
       <div className="flex  gap-1 w-[100%] md:w-[80%] mx-auto justify-between  md:p-0 p-3">
         <div className="flex flex-col gap-1 items-center p-3">
           <div className="w-16">
@@ -84,7 +84,7 @@ export default function Header() {
         </div>
         {/* mobail responsive */}
         <ul
-          className={`md:hidden bg-white   flex flex-col gap-0 md:gap-12 absolute w-full h-full bottom-0 py-24 
+          className={`md:hidden bg-white   flex flex-col gap-0 md:gap-12 absolute w-full h-[100vh] top-0 py-24 
           duration-500 ${store ? "left-0" : "left-[-100%]"} `}
         >
           <div className="flex flex-col gap-2">
